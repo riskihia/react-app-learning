@@ -93,17 +93,20 @@ const skillData = [
 
 function App() {
   return (
-    <div className="card">
-      <Avatar />
-      <div className="data">
-        <Intro />
-        {/* Should contain one Skill component
+    <>
+      <div className="card">
+        <Avatar />
+        <div className="data">
+          <Intro />
+          {/* Should contain one Skill component
         for each web dev skill that you have,
         customized with props */}
 
-        <SkillList />
+          <SkillList />
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 
@@ -148,6 +151,31 @@ function Skill(props) {
     <span className="skill" style={{ backgroundColor: props.skillObj.color }}>
       {props.skillObj.name} {props.skillObj.icon}
     </span>
+  );
+}
+
+function Footer() {
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 24;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  console.log(isOpen);
+
+  return (
+    <footer style={{ backgroundColor: "gray" }}>
+      {isOpen && (
+        <div>
+          <p>
+            we're open until {closeHour}:00. Come visit us or ordoer online.
+          </p>
+          <button
+            style={{ backgroundColor: "violet", color: "white", padding: 12 }}
+          >
+            order
+          </button>
+        </div>
+      )}
+    </footer>
   );
 }
 
