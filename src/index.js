@@ -100,6 +100,7 @@ function App() {
         {/* Should contain one Skill component
         for each web dev skill that you have,
         customized with props */}
+
         <SkillList />
       </div>
     </div>
@@ -131,8 +132,9 @@ function SkillList() {
       <Skill teks="javascript" icon="&#128508;" bg="yellow" />
       <Skill teks="devil" icon="&#128520;" bg="violet" />
       <Skill teks="hulk" icon="&#129314;" bg="green" /> */}
+
       {skillData.map((skill) => (
-        <Skill teks={skill.name} icon={skill.icon} bg={skill.color} />
+        <Skill skillObj={skill} key={skill.name} />
       ))}
     </div>
   );
@@ -140,8 +142,11 @@ function SkillList() {
 
 function Skill(props) {
   return (
-    <span className="skill" style={{ backgroundColor: props.bg }}>
-      {props.teks} {props.icon}
+    // <span className="skill" style={{ backgroundColor: props.bg }}>
+    //   {props.teks} {props.icon}
+    // </span>
+    <span className="skill" style={{ backgroundColor: props.skillObj.color }}>
+      {props.skillObj.name} {props.skillObj.icon}
     </span>
   );
 }
