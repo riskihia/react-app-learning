@@ -129,6 +129,9 @@ function Intro() {
   );
 }
 function SkillList() {
+  const skills = skillData;
+  // const skills = [];
+  const numSkills = skills.length;
   return (
     <div className="skill-list">
       {/* <Skill teks="bahasa" icon="&#128509;" bg="red" />
@@ -136,9 +139,20 @@ function SkillList() {
       <Skill teks="devil" icon="&#128520;" bg="violet" />
       <Skill teks="hulk" icon="&#129314;" bg="green" /> */}
 
-      {skillData.map((skill) => (
-        <Skill skillObj={skill} key={skill.name} />
-      ))}
+      {numSkills > 0 && (
+        <div>
+          {skills.map((skill) => (
+            // <Skill skillObj={skill} key={skill.name} />
+            <span
+              className="skill"
+              style={{ backgroundColor: skill.color }}
+              key={skill.name}
+            >
+              {skill.name} {skill.icon}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
