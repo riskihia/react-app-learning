@@ -2,6 +2,95 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
+const profileData = [
+  {
+    name: "Riski Rahmat Hia",
+    intro:
+      "Hai saya sangat senang, maka saya suka bermain. Dalam kehidupan ini",
+    skill: [
+      {
+        skillName: "javascript",
+        skillIcon: "&#128509;",
+      },
+      {
+        skillName: "php",
+        skillIcon: "&#128509;",
+      },
+      {
+        skillName: "laravel",
+        skillIcon: "&#128509;",
+      },
+      {
+        skillName: "react js",
+        skillIcon: "&#128509;",
+      },
+    ],
+    avatar: "avatar.jpg",
+  },
+  {
+    name: "Fransiskus Saferius Hia",
+    intro:
+      "Hai saya sangat senang, maka saya suka bermain. Dalam kehidupan ini",
+    skill: [
+      {
+        skillName: "bun",
+        skillIcon: "&#128509;",
+      },
+      {
+        skillName: "google cloud",
+        skillIcon: "&#128509;",
+      },
+      {
+        skillName: ".NET",
+        skillIcon: "&#128509;",
+      },
+    ],
+    avatar: "avatar.jpg",
+  },
+  {
+    name: "Putri Eunike Hia",
+    intro:
+      "Hai saya sangat senang, maka saya suka bermain. Dalam kehidupan ini",
+    skill: [
+      {
+        skillName: "Motor",
+        skillIcon: "&#128509;",
+      },
+      {
+        skillName: "Mobile",
+        skillIcon: "&#128509;",
+      },
+      {
+        skillName: "Free Fire",
+        skillIcon: "&#128509;",
+      },
+      {
+        skillName: "Mobile Legend",
+        skillIcon: "&#128509;",
+      },
+    ],
+    avatar: "avatar.jpg",
+  },
+];
+
+const skillData = [
+  {
+    name: "javascript",
+    icon: "😍",
+    color: "red",
+  },
+  {
+    name: "php",
+    icon: "💖",
+    color: "green",
+  },
+  {
+    name: "laravel",
+    icon: "👌",
+    color: "blue",
+  },
+];
+
 function App() {
   return (
     <div className="card">
@@ -38,10 +127,13 @@ function Intro() {
 function SkillList() {
   return (
     <div className="skill-list">
-      <Skill teks="bahasa" icon="&#128509;" bg="red" />
+      {/* <Skill teks="bahasa" icon="&#128509;" bg="red" />
       <Skill teks="javascript" icon="&#128508;" bg="yellow" />
       <Skill teks="devil" icon="&#128520;" bg="violet" />
-      <Skill teks="hulk" icon="&#129314;" bg="green" />
+      <Skill teks="hulk" icon="&#129314;" bg="green" /> */}
+      {skillData.map((skill) => (
+        <Skill teks={skill.name} icon={skill.icon} bg={skill.color} />
+      ))}
     </div>
   );
 }
